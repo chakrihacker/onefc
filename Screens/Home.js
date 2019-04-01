@@ -21,7 +21,8 @@ export default class Home extends Component {
     isFeedLoading: true,
     feedData: null,
     isFeedError: false,
-    showBanner: false
+    showBanner: false,
+    spinner: null
   };
 
   componentDidMount() {
@@ -58,6 +59,7 @@ export default class Home extends Component {
               width,
               height: height / 4
             }}
+            loadingIndicatorSource={require("../assets/spinner.png")}
             source={{
               uri: this.state.eventData[0].creatives.bannerUpcoming.url
             }}
@@ -103,6 +105,7 @@ export default class Home extends Component {
             {item.data.title}
           </Text>
           <Image
+            loadingIndicatorSource={require("../assets/spinner.png")}
             source={{ uri: item.data.featured_image.url }}
             style={{
               width: "100%",
@@ -151,6 +154,7 @@ export default class Home extends Component {
           }}
         >
           <Image
+            loadingIndicatorSource={require("../assets/spinner.png")}
             source={{ uri: item.data.featured_image.url }}
             style={{ width: "40%", height: width / 4.2 }}
             resizeMethod={"auto"}
